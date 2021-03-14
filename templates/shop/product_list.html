@@ -3,7 +3,7 @@
 {% block content %}
 <div>
   {% for c in categories %}
-  <p><a href="{% url 'by_category' c.pk %}">{{ c.name }}</a></p>
+  <p><a href="{% url 'by_category_slug' c.slug %}">{{ c.name }}</a></p>
   {% endfor %}
 </div>
 <div class="card-group">
@@ -12,7 +12,7 @@
   <div class="card">
     <img src="{{ product.image.url }}" class="card-img-top" style="width: 150px; height: 150px;" alt="Изображение не добавлено">
     <div class="card-body">
-      <h5 class="card-title">{{ product.name }}</h5>
+      <a href="{{ product.get_absolute_url }}"><h5 class="card-title">{{ product.name }}</h5></a>
       <p class="card-text">{{ product.category }}</p>
       <p class="card-text">{{ product.price }}</p>
       <p class="card-text"><small class="text-muted">{{ product.created }}</small></p>

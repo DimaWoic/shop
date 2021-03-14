@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.views.generic import ListView, DetailView
 
 
 class AllProductListView(ListView):
-    queryset = Product.objects.all()
+    queryset = Product.objects.filter(available=True)
     context_object_name = 'products'
     template_name = 'shop/product_list.html'
     template_name_suffix = '_list'
@@ -13,6 +13,7 @@ class AllProductListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['categories'] = Category.objects.all()
+        print(self.kwargs)
         return context
 
 
@@ -23,13 +24,14 @@ class ProductsByCategorySlug(ListView):
     ordering = ['created']
 
     def get_queryset(self):
-        query = Product.objects.get(category=self.kwargs['slug'], available=True)
+        category = Category.objects.get(slug=self.kwargs['category_slug'])
+        query = Product.objects.filter(pk=category.pk, available=True)
         return query
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['categories'] = Category.objects.all()
-        context['current_category'] = Category.objects.get(pk=self.kwargs['pk'])
+        context['current_category'] = Category.objects.get(slug=self.kwargs['category_slug'])
         return context
 
 
@@ -50,11 +52,10 @@ class ProductsByAvailable(ListView):
 
 
 class ProductDetailView(DetailView):
+    model = Product
     template_name = 'shop/detail.html'
     context_object_name = 'product'
 
-    def get_queryset(self):
-        query = Product.objects.get(id=self.kwargs['id'], slug=self.kwargs['slug'], available=True)
-        return query
+
 
 
