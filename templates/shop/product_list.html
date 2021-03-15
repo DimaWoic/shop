@@ -2,9 +2,7 @@
 
 {% block content %}
 <div>
-  {% for c in categories %}
-  <p><a href="{% url 'by_category_slug' c.slug %}">{{ c.name }}</a></p>
-  {% endfor %}
+
 </div>
 <div class="card-group">
     {% for product in products %}

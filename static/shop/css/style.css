@@ -1,0 +1,28 @@
+.header {
+   width: 100%;
+   height: 75px;
+   background-color: coral;
+}
+
+.content-container {
+   width: 100%;
+}
+
+.left_side_menu {
+   width: 200px;
+   height: auto;
+   background-color: darkgrey;
+   float: left;
+}
+
+.content {
+   float: left;
+   width: 70.4%;
+}
+
+.right_side_menu {
+   float: left;
+   width: 191.5px;
+   height: auto;
+   background-color: darkgrey;
+}
