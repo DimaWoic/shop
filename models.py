@@ -40,3 +40,15 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.id, self.slug])
+
+
+class ShopLogo(models.Model):
+    company_name = models.CharField(max_length=20, verbose_name='название магазина')
+    logo_img = models.ImageField(verbose_name='лого магазина')
+
+    class Meta:
+        verbose_name = 'Логотип и название магазина'
+        verbose_name_plural = 'Логотипы и названия магазина'
+
+    def __str__(self):
+        return self.company_name

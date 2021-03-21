@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-from .models import Category, Product
+from .models import Category, Product, ShopLogo
+
+
+class ShopLogoAdmin(admin.ModelAdmin):
+    list_display = ['company_name', 'logo_img']
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -15,5 +19,6 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+admin.site.register(ShopLogo, ShopLogoAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)

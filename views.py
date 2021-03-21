@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
+from .models import Category, Product, ShopLogo
 from django.views.generic import ListView, DetailView
 
 
@@ -13,7 +13,7 @@ class AllProductListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['categories'] = Category.objects.all()
-        print(self.kwargs)
+        context['shop'] = ShopLogo.objects.first()
         return context
 
 
@@ -55,7 +55,3 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'shop/detail.html'
     context_object_name = 'product'
-
-
-
-
