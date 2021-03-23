@@ -39,13 +39,20 @@ a {
     width: 100%;
     background-color: cornflowerblue;
     margin-top: 2px;
+    border-top: 1px dotted rgb(95, 95, 95);
+
 }
 
 .left-menu {
-    background-color: cornsilk;
     width: 200px;
+    height: 1000px;
     float: left;
     height: auto;
+    border-right: 1px dotted rgb(95, 95, 95);
+}
+
+.menu_item {
+    margin-left: 50px;
 }
 
 .products {
@@ -59,6 +66,7 @@ a {
 .right-menu {
     float: right;
     width: 200px;
+    
 }
 
 .products-list {
