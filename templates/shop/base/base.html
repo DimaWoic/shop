@@ -30,10 +30,10 @@
 		<div id="footer">
 			<p>©2009 The DelliStore. Design by <a href="http://www.dellustrations.com/templates.html">Dellustrations.com</a> for <a href="http://www.smashingmagazine.com">Smashing Magazine</a></p>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html">About Us</a></li>
-				<li><a href="services.html">Services </a></li>
-				<li><a href="contact.html">Contact us</a></li>
+				<li><a href="{% url 'index' %}">Главная</a></li>
+				<li><a href="{% url 'about' %}">О нас</a></li>
+				<li><a href="{% url 'products' %}">Продукция</a></li>
+				<li><a href="{% url 'contacts' %}">Контакты</a></li>
 			</ul>
 		</div>
 	</div>

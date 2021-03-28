@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product, ShopLogo
+from .models import Category, Product, ShopLogo, GreetingText
 from django.views.generic import ListView, DetailView, TemplateView
 
 
 class MainView(TemplateView):
     template_name = 'shop/main.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['greeting'] = GreetingText.objects.first()
+        return context
 
 
 class AllProductListView(ListView):

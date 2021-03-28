@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-from .models import Category, Product, ShopLogo
+from .models import Category, Product, ShopLogo, GreetingText, Specials
+
+
+class GreetingTextAdmin(admin.ModelAdmin):
+    list_display = ['shop_name', 'greeting_text']
 
 
 class ShopLogoAdmin(admin.ModelAdmin):
@@ -19,6 +23,12 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+class SpecialAdmin(admin.ModelAdmin):
+    list_display = ['special_name', 'special_activate']
+
+
 admin.site.register(ShopLogo, ShopLogoAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(GreetingText, GreetingTextAdmin)
+admin.site.register(Specials, SpecialAdmin)

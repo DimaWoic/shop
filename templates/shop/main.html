@@ -13,13 +13,10 @@
 				<div class="block">
 					<div class="block-top"></div>
 					<div class="block-content">
-						<h2>Welcome to the <span>DelliStore!</span></h2>
+						<h2>Добро пожаловать в <span>{{ greeting.shop_name }}!</span></h2>
 							<p>
-								<img class="cake" src="img/img-cake.jpg" alt="Cake" />
-								liquam suscipit. <strong>Integer justo</strong> erat, bibendum sed, lacinia eu, tristique condimentum, magna. Aliquam augue dolor,
-                                tempus sit amet, pharetra nec, blandit elementum, diam. Proin pharetra odio eu lectus sollicitudin ultricies. Suspend<br />
-								isse turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
-						<a class="yellow-button" href="#"><span>Learn More</span></a>
+								{{ greeting.greeting_text }}
+							</p>
 					</div>
 					<div class="block-bottom"></div>
 				</div>
@@ -28,7 +25,7 @@
 				<div class="block">
 					<div class="block-top"></div>
 					<div class="block-content">
-						<h3>Our <span>Specials!</span></h3>
+						<h3>Наши <span>Акции!</span></h3>
 						<ul>
 							<li><a href="#">Burger</a><strong>$4.99</strong></li>
 							<li><a href="#">Chicken Wings</a><strong>$5.99</strong></li>

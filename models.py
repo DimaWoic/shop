@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True, verbose_name='категория')
     slug = models.SlugField(max_length=200, db_index=True, unique=True, verbose_name='слаг')
@@ -17,7 +18,21 @@ class Category(models.Model):
         return reverse('shop:by_category_slug', args=[self.slug])
 
 
+class Specials(models.Model):
+    special_name = models.CharField(max_length=100, verbose_name='название акции')
+    special_activate = models.BooleanField(verbose_name='активация акции', blank=True)
+
+    class Meta:
+        verbose_name = 'Акция'
+        verbose_name_plural = 'Акции'
+
+    def __str__(self):
+        return self.special_name
+
+
 class Product(models.Model):
+    special = models.ForeignKey(Specials, verbose_name='Акционный товар', on_delete=models.CASCADE,
+                                related_name='special', null=True)
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, verbose_name='категория')
     name = models.CharField(max_length=200, db_index=True, verbose_name='название')
     slug = models.SlugField(max_length=200, db_index=True, verbose_name='слаг')
@@ -52,3 +67,17 @@ class ShopLogo(models.Model):
 
     def __str__(self):
         return self.company_name
+
+
+class GreetingText(models.Model):
+    shop_name = models.CharField(max_length=100, verbose_name='название магазина')
+    greeting_text = models.TextField(verbose_name='текст приветствия')
+
+    class Meta:
+        verbose_name = 'Текст приветствия'
+        verbose_name_plural = 'Тексты приветствия'
+
+    def __str__(self):
+        return self.shop_name
+
+
