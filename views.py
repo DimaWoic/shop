@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product, ShopLogo, GreetingText
+from .models import Category, Product, ShopLogo, GreetingText, AboutUs
 from django.views.generic import ListView, DetailView, TemplateView
 
 
@@ -70,6 +70,11 @@ class ProductDetailView(DetailView):
 
 class AboutUsView(TemplateView):
     template_name = 'shop/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutUsView, self).get_context_data()
+        context['about'] = AboutUs.objects.first()
+        return context
 
 
 class ServicesView(TemplateView):

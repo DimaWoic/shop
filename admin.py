@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Category, Product, ShopLogo, GreetingText, Specials
+from .models import Category, Product, ShopLogo, GreetingText, Specials, AboutUs
 
 
 class GreetingTextAdmin(admin.ModelAdmin):
@@ -27,8 +27,13 @@ class SpecialAdmin(admin.ModelAdmin):
     list_display = ['special_name', 'special_activate']
 
 
+class AboutUsAdmin(admin.ModelAdmin):
+    list_display = ['title', 'about_text']
+
+
 admin.site.register(ShopLogo, ShopLogoAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(GreetingText, GreetingTextAdmin)
 admin.site.register(Specials, SpecialAdmin)
+admin.site.register(AboutUs, AboutUsAdmin)

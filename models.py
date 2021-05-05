@@ -80,3 +80,13 @@ class GreetingText(models.Model):
         return self.shop_name
 
 
+class AboutUs(models.Model):
+    title = models.CharField(max_length=300, verbose_name='заглавие')
+    about_text = models.TextField(verbose_name='описание магазина')
+
+    class Meta:
+        verbose_name = 'страница О нас'
+        verbose_name_plural = 'страницы О нас'
+
+    def __str__(self):
+        return self.title
