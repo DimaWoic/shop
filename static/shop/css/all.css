@@ -4,7 +4,11 @@ body{
 	background:#4b4a4a url(../img/bg-body.png) repeat-x 0 0;
 	font:62.5%/1.4 Verdana, Tahoma, sans-serif;
 }
-img{border:none;}
+img{border:none;
+    height:100px
+    width:100px
+
+}
 form,fieldset{margin:0;padding:0;border:0;}
 #page{
 	width:942px;

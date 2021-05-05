@@ -83,6 +83,7 @@ class GreetingText(models.Model):
 class AboutUs(models.Model):
     title = models.CharField(max_length=300, verbose_name='заглавие')
     about_text = models.TextField(verbose_name='описание магазина')
+    img = models.ImageField(verbose_name='изображение', blank=True)
 
     class Meta:
         verbose_name = 'страница О нас'
