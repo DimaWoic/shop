@@ -20,13 +20,14 @@
 					<div class="border-right-top">
 						<div class="border-left-bottom">
 							<div class="border-right-bottom">
-								<img src="{% if about.img %} {{ about.img.url }} {% endif %}" alt="Interier" />
+								<img id="about_image" src="{% if about.img %} {{ about.img.url }} {% endif %}" alt="Interier" />
 							</div>
 						</div>
 					</div>
 				</div>
+				<span id="about_text">{{ about.about_text }}</span>
 			</div>
-			<p>{{ about.about_text }}</p>
+
 		</div>
 		<div class="block-bottom"></div>
 	</div>
